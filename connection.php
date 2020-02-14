@@ -1,27 +1,6 @@
 <?php
 
 include ('config.php');
-/*
-$servername = "localhost";
-$username = "root";
-$password = "nasi";
-$dbname = "notexchange";
-
-
-*/
-/*
-try {
-    // $sConn = "mysql:host=$servername;dbname=$dbname";
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
-}
-catch(PDOException $e)
-{
-    echo "Connection failed: " . $e->getMessage();
-}
-*/
 
 class Connection{
 
@@ -39,7 +18,7 @@ class Connection{
     }
 
     public function connect(){
-        /** @var $sConn string needed to the PDO*/
+        /** @var $sConn string needed to the PDO aka DSN*/
         $sConn = 'mysql:host=' . $this->servername . ';dbname=' . $this->dbname;
 
         // Set options
@@ -49,10 +28,11 @@ class Connection{
         );
 
         try{
+            //$this->link =  new PDO();
             $this->link = new PDO($sConn, $this->username, $this->password, $options);
             //$this->link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->connected = true;
-            //echo "connected to db";
+            echo "connected to db";
         }
         catch(PDOException $e) {
             $this->error = $e->getMessage();
@@ -64,11 +44,26 @@ class Connection{
         return $this->connected;
     }
 
+
     public function prepare($query){
         return $this->link->prepare($query);
     }
 
+    /*
+    public function testPrepare(){
+        $statement = $this->link->prepare('select * from utenti where Username = ?');
+        $statement->execute(array('nasi'));
+
+        foreach ($statement as $row){
+            echo $row['IdU'] . ' ' . $row['Username'] . ' ' . $row['Password'] . '<br>';
+        }
+    }
+    */
+
+
+
     public function query($query){
         return $this->link->query($query);
     }
+
 }

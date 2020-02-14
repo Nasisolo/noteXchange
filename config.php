@@ -4,3 +4,5 @@ define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASS", "nasi");
 define("DB_NAME", "notexchange");
+
+// @author : -. .- ... ..
