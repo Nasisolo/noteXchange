@@ -63,7 +63,7 @@ if(isset($_POST['submit'])) {
         <td><input type="submit" name="submitIndex" value="Ritorna a Home"></td>
 
         <?php
-        print $errMessage;
+        echo $errMessage;
         ?>
 
     </form>

@@ -19,7 +19,7 @@ session_start();
 </html>
 
 <?php
-/*
+/* // test query
 $tmp = $db->query('SELECT * FROM corsi');
 //$tmp->fetch(); //-1 value
 
@@ -30,9 +30,14 @@ foreach ($tmp as $row)
 
 
 if(isset($_SESSION['username'])) {
-    echo 'SEI LOGGATO come utente:'.$_SESSION['username'];
+    echo 'SEI LOGGATO come utente: '.$_SESSION['username'];
 
-    print '<br><a href="logout.php"><Button>LOGOUT</Button></a>';
+    echo '<br><br><a href="addCourse.php">Inserisci corso</a>';
+    echo '<br><a href="addNote.php">Inserisci appunto</a>';
+
+
+    echo '<br><br><a href="logout.php"><Button>LOGOUT</Button></a>';
+
 
 }else{
     if(!isset($_SESSION['username'])){?>
