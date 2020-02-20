@@ -5,9 +5,11 @@ $db = new Connection();
 $errMessage = '';
 session_start();
 
+// check if 'Ritorna a Home' is pressed, then redirect to index.php
 if(isset($_POST['submitIndex']))
     header("Location: index.php");
 
+// check if button to submit a note is pressed, then check fields
 if(isset($_POST['submitNote'])) {
 // check if fields aren't empty
     if (!empty($_POST['idcorso']) && !empty($_POST['lesson']) && !empty($_POST['title']) && !empty($_POST['textnote'])) {
@@ -18,12 +20,15 @@ if(isset($_POST['submitNote'])) {
 	            ('nasi', '1', '1', 'Alberi binari', 'testo di prova: lezione su Alberi binari')
          */
 
+        // prepare query to insert a note in table 'appunti' and execute
         $errMessage = '';
         $stmt = $db->prepare('INSERT INTO appunti (username, idcorso, lezione, titolo, testo) VALUES (?, ?, ?, ?, ?)');
         $stmt->execute(array($_SESSION['username'], $_POST['idcorso'], $_POST['lesson'], $_POST['title'], $_POST['textnote']));
 
+        // then redirect to home page
         header("Location: .");
     }else{
+        // change error message if fields are empty
         $errMessage = '<p name = align="center"><font color=red>CAMPI VUOTI.</font></p>';
     }
 }

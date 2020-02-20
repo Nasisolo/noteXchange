@@ -40,11 +40,6 @@ class Connection{
         }
     }
 
-    public function isConnected(){
-        return $this->connected;
-    }
-
-
     public function prepare($query){
         return $this->link->prepare($query);
     }
@@ -58,12 +53,10 @@ class Connection{
             echo $row['IdU'] . ' ' . $row['Username'] . ' ' . $row['Password'] . '<br>';
         }
     }
-    */
-
-
 
     public function query($query){
         return $this->link->query($query);
     }
+    */
 
 }

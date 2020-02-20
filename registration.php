@@ -7,35 +7,23 @@ $errMessage = '';
 if(isset($_POST['submitIndex']))
     header("Location: index.php");
 
-// check if button 'LOGIN' is pressed, then try to login
+// check if button 'REGISTRATI' is pressed, then try to login
 if(isset($_POST['submitRegistration'])) {
-    // check if username and password fields not empty
+    // check if fields aren't empty
     if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['surname'])) {
         // prepare query then execute query, it must return 1 row
         $stmt = $db->prepare('INSERT INTO utenti (username, password, nome, cognome) VALUES (?, ?, ?, ?)');
         $stmt->execute(array($_POST['username'], $_POST['password'], $_POST['nome'], $_POST['cognome']));
 
-            /*
-             * INSERT INTO `utenti` (`username`, `password`, `nome`, `cognome`)
-                VALUES
-	            ('nasi', 'root', 'Monan', 'Nasir'),
-             */
-
-            // activate session, then insert username into the SESSION var associated to the username
-            // then redirect to homepage
-            $errMessage = '';
-            header("Location: .");
-
+        // then redirect to homepage
+        $errMessage = '';
+        header("Location: .");
         }
         else{
+            // change error message if fields are empty
             $errMessage = '<p name = align="center"><font color=red>CAMPI VUOTI.</font></p>';
             // print '<p name = align="center"><font color=red>CREDENZIALI NON CORRETTE.</font></p>';
         }
-
-
-
-
-
 }
 ?>
 
@@ -44,7 +32,7 @@ if(isset($_POST['submitRegistration'])) {
 <html lang="it">
 <title>noteXchange</title>
 <head><h1 align="center">noteXchange</h1></head>
-<h2>REGISTRATI!</h2>
+<h2 align="center">REGISTRATI!</h2>
 <body>
 <form action="" method="post" align="center" style="width: 15%; margin:0 auto;">
     <fieldset>
@@ -64,7 +52,7 @@ if(isset($_POST['submitRegistration'])) {
         <input name="surname" type="text" placeholder="Inserisci Cognome">
     </fieldset>
     </br>
-    <td><input type="submit" name="submitRegistration" value="LOGIN"></td>
+    <td><input type="submit" name="submitRegistration" value="REGISTRATI"></td>
     <td><input type="submit" name="submitIndex" value="Ritorna a Home"></td>
 
     <?php
@@ -72,9 +60,7 @@ if(isset($_POST['submitRegistration'])) {
     ?>
 
 </form>
-</br>
-
-
+<br>
 
 </body>
 </html>

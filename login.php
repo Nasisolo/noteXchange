@@ -36,18 +36,15 @@ if(isset($_POST['submit'])) {
             // print '<p name = align="center"><font color=red>CREDENZIALI NON CORRETTE.</font></p>';
         }
 
-
-
-
     }
 }
 ?>
-
 
     <!DOCTYPE html>
     <html lang="it">
     <title>noteXchange</title>
     <head><h1 align="center">noteXchange</h1></head>
+    <h2 align="center">ENTRA!</h2>
     <body>
     <form action="" method="post" align="center" style="width: 15%; margin:0 auto;">
         <fieldset>
