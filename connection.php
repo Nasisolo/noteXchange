@@ -32,7 +32,7 @@ class Connection{
             $this->link = new PDO($sConn, $this->username, $this->password, $options);
             //$this->link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->connected = true;
-            echo "connected to db";
+            //echo "connected to db<br>";
         }
         catch(PDOException $e) {
             $this->error = $e->getMessage();

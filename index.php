@@ -34,6 +34,7 @@ if(isset($_SESSION['username'])) {
 
     echo '<br><br><a href="addCourse.php">Inserisci corso</a>';
     echo '<br><a href="addNote.php">Inserisci appunto</a>';
+    echo '<br><a href="viewCourses.php">Visualizza corsi</a>';
 
 
     echo '<br><br><a href="logout.php"><Button>LOGOUT</Button></a>';

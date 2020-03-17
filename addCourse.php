@@ -1,8 +1,9 @@
 <?php
 require_once 'connection.php';
 $db = new Connection();
-
 session_start();
+
+$errMessage = '';
 
 // check if 'Ritorna a Home' is pressed
 if(isset($_POST['submitIndex']))
