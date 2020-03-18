@@ -44,19 +44,9 @@ class Connection{
         return $this->link->prepare($query);
     }
 
-    /*
-    public function testPrepare(){
-        $statement = $this->link->prepare('select * from utenti where Username = ?');
-        $statement->execute(array('nasi'));
-
-        foreach ($statement as $row){
-            echo $row['IdU'] . ' ' . $row['Username'] . ' ' . $row['Password'] . '<br>';
-        }
-    }
-
     public function query($query){
         return $this->link->query($query);
     }
-    */
+
 
 }

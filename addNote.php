@@ -35,6 +35,7 @@ if(isset($_POST['submitNote'])) {
     }
 }
 
+// get all the data of the courses to generate an automatic 'select menu'
 $qCourse = $db->prepare('SELECT * from corsi');
 $qCourse->execute();
 

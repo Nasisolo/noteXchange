@@ -36,7 +36,14 @@ if(isset($_SESSION['username'])) {
     echo '<br><a href="addNote.php">Inserisci appunto</a>';
     echo '<br><a href="viewCourses.php">Visualizza corsi</a>';
 
+    echo '<br><br><br>
+    <form action="search.php" method="post">
+      <input type="text" placeholder="Ricerca..." name="search">
+      <button type="submitSearch">cerca</button>
+    </form>
+    ';
 
+    //echo '<br><a href="search.php">Ricerca negli appunti</a>';
     echo '<br><br><a href="logout.php"><Button>LOGOUT</Button></a>';
 
 
